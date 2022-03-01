@@ -11,14 +11,16 @@ pipeline{
                 stage('Test on Lin') {
                     steps {
                         echo 'Test on Linux'
-                        echo env.GIT_BRANCH
                     }
                 }
             }
         }
         stage('Test when') {
+            environment { 
+                GIT_BRANCH = "${GIT_BRANCH.split("/")[1]}"
+            }
             when {
-                env.GIT_BRANCH 'origin/master'
+                branch "origin/master"
             }
             steps {
                 echo 'Testing when'
