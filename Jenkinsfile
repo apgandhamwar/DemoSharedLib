@@ -3,10 +3,11 @@
 pipeline {
     agent any
     stages(){
-        stage('call library Hello-World function'){
+        stage('call library Hello-Args function'){
             steps{
                script{
-                   helloWorld()
+                   helloArgs('Jenkins!!')
+                   helloArgs.goodbyeWorld('Jenkins!!!!')
                }
             }
         }
