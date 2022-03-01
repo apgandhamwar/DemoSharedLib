@@ -18,7 +18,7 @@ pipeline{
         }
         stage('Test when') {
             when {
-                branch 'origin/master'
+                env.GIT_BRANCH 'origin/master'
             }
             steps {
                 echo 'Testing when'
