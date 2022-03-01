@@ -11,14 +11,14 @@ pipeline{
                 stage('Test on Lin') {
                     steps {
                         echo 'Test on Linux'
-                        echo env.BRANCH_NAME
+                        echo env.GIT_BRANCH
                     }
                 }
             }
         }
         stage('Test when') {
             when {
-                branch 'master'
+                branch 'origin/master'
             }
             steps {
                 echo 'Testing when'
