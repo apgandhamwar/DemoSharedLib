@@ -11,7 +11,7 @@ pipeline{
                 stage('Test on Lin') {
                     steps {
                         echo 'Test on Linux'
-                        echo branch
+                        echo env.BRANCH_NAME
                     }
                 }
             }
