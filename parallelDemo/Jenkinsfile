@@ -15,6 +15,14 @@ pipeline{
                 }
             }
         }
+        stage('Test when') {
+            when {
+                branch 'qa'
+            }
+            steps {
+                echo 'Testing when'
+            }
+        }
 
     }
 }
