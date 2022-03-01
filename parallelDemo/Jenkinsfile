@@ -2,6 +2,9 @@ pipeline{
     agent any
     stages {
         stage('Test Parallel') {
+            environment { 
+                GIT_BRANCH = "${GIT_BRANCH.split("/")[1]}"
+            }
             parallel {
                 stage('Test on Win') {
                     steps {
@@ -11,14 +14,13 @@ pipeline{
                 stage('Test on Lin') {
                     steps {
                         echo 'Test on Linux'
+                        echo env.GIT_BRANCH
                     }
                 }
             }
         }
         stage('Test when') {
-            environment { 
-                GIT_BRANCH = "${GIT_BRANCH.split("/")[1]}"
-            }
+            
             when {
                 branch "origin/master"
             }
