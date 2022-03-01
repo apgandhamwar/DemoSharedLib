@@ -1,0 +1,14 @@
+@Library ('github.com/apgandhamwar/DemoSharedLib') _
+
+pipeline {
+    agent any
+    stages(){
+        stage('call library Hello-World function'){
+            steps{
+               script{
+                   helloWorld()
+               }
+            }
+        }
+    }
+}
